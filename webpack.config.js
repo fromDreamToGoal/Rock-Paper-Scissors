@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './index.html',
+    entry: './code/main.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'build'),
@@ -15,7 +15,7 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                type: 'asset/resource',
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.(woff|woff2|png)$/i,
