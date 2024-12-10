@@ -4,8 +4,8 @@ module.exports = {
     mode: 'development',
     entry: './code/main.js',
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build'),
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist'),
     },
     module: {
         rules: [

@@ -1,4 +1,6 @@
 import './styles.css';
+import { getChoices, getComputerChoice, getOutcome } from './game.js';
+import { clearChildren } from './utils.js';
 
 function makeChoiceImage(choice) {
     const image = new Image(100, 100);
