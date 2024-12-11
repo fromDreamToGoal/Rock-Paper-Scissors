@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./code/styles.css\");\n/* harmony import */ var _game_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./game.js */ \"./code/game.js\");\n/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils.js */ \"./code/utils.js\");\n\n\n\n\nfunction makeChoiceImage(choice) {\n    const image = new Image(100, 100);\n    if (choice === 'Scissors') {\n        image.src = './assets/scissors.png';\n    } else if (choice === 'Rock') {\n        image.src = './assets/rock.png';\n    } else {\n        image.src = './assets/paper.png';\n    }\n    image.alt = choice;\n    return image;\n}\n\n function setControls(content) {\n    const controls = document.getElementById('controls'); \n    (0,_utils_js__WEBPACK_IMPORTED_MODULE_2__.clearChildren)(controls);\n    controls.appendChild(content);\n }\n \n function setDescription(message) {\n     const description = document.getElementById('description');\n     description.innerHTML = message;\n }\n\n function prepareGame() {\n    setDescription('Select Rock, Paper, or Scissors:');\n    const choices = (0,_game_js__WEBPACK_IMPORTED_MODULE_1__.getChoices)();\n    const choicesElement = document.createElement('div');\n    choices.forEach((choice) => {\n        const choiceImage = makeChoiceImage(choice);\n        choiceImage.onclick = () => playGame(choice);\n        choicesElement.appendChild(choiceImage);\n    });\n    setControls(choicesElement);\n }\n\n function playGame(userChoice) {\n     const computerChoice = (0,_game_js__WEBPACK_IMPORTED_MODULE_1__.getComputerChoice)();\n     const outcome = (0,_game_js__WEBPACK_IMPORTED_MODULE_1__.getOutcome)(userChoice, computerChoice);\n     const outcomeElement = document.getElementById('outcome');\n     (0,_utils_js__WEBPACK_IMPORTED_MODULE_2__.clearChildren)(outcomeElement);\n     outcomeElement.appendChild(makeOutcome(userChoice, computerChoice, outcome));\n }\n\n function makeOutcome(userChoice, computerChoice, outcome) {\n     const userOutcome = makePlayerOutcome('You chose:', userChoice);\n     const computerOutcome = makePlayerOutcome('Computer chose:', computerChoice);\n     const gameOutcome = document.createElement('p');\n     gameOutcome.textContent = outcome;\n     gameOutcome.setAttribute('class', outcome);\n     const outcomeElement = document.createElement('div');\n     outcomeElement.appendChild(gameOutcome);\n     outcomeElement.appendChild(userOutcome);\n     outcomeElement.appendChild(computerOutcome);\n     outcomeElement.setAttribute('class', 'active');\n    return outcomeElement;\n }\n\n function makePlayerOutcome(message, choice) {\n     const outcomeElement = document.createElement('div');\n     const outcomeText = document.createElement('p');\n     outcomeText.textContent = message;\n     outcomeElement.appendChild(outcomeText);\n     const outcomeImage = makeChoiceImage(choice);\n     outcomeImage.setAttribute('class', 'outcomeImg');\n     outcomeElement.appendChild(outcomeImage);\n     outcomeElement.setAttribute('class', 'playerOutcome');\n     return outcomeElement;\n }\n\nprepareGame();\n\n//# sourceURL=webpack://rock-paper-scissors/./code/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./code/styles.css\");\n/* harmony import */ var _game_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./game.js */ \"./code/game.js\");\n/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils.js */ \"./code/utils.js\");\n/* harmony import */ var _assets_scissors_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/scissors.png */ \"./code/assets/scissors.png\");\n/* harmony import */ var _assets_rock_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/rock.png */ \"./code/assets/rock.png\");\n/* harmony import */ var _assets_paper_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/paper.png */ \"./code/assets/paper.png\");\n\n\n\n\n\n\n\nfunction makeChoiceImage(choice) {\n    const image = new Image(100, 100);\n    if (choice === 'Scissors') {\n        image.src = _assets_scissors_png__WEBPACK_IMPORTED_MODULE_3__;\n    } else if (choice === 'Rock') {\n        image.src = _assets_rock_png__WEBPACK_IMPORTED_MODULE_4__;\n    } else {\n        image.src = _assets_paper_png__WEBPACK_IMPORTED_MODULE_5__;\n    }\n    image.alt = choice;\n    return image;\n}\n\n function setControls(content) {\n    const controls = document.getElementById('controls'); \n    (0,_utils_js__WEBPACK_IMPORTED_MODULE_2__.clearChildren)(controls);\n    controls.appendChild(content);\n }\n \n function setDescription(message) {\n     const description = document.getElementById('description');\n     description.innerHTML = message;\n }\n\n function prepareGame() {\n    setDescription('Select Rock, Paper, or Scissors:');\n    const choices = (0,_game_js__WEBPACK_IMPORTED_MODULE_1__.getChoices)();\n    const choicesElement = document.createElement('div');\n    choices.forEach((choice) => {\n        const choiceImage = makeChoiceImage(choice);\n        choiceImage.onclick = () => playGame(choice);\n        choicesElement.appendChild(choiceImage);\n    });\n    setControls(choicesElement);\n }\n\n function playGame(userChoice) {\n     const computerChoice = (0,_game_js__WEBPACK_IMPORTED_MODULE_1__.getComputerChoice)();\n     const outcome = (0,_game_js__WEBPACK_IMPORTED_MODULE_1__.getOutcome)(userChoice, computerChoice);\n     const outcomeElement = document.getElementById('outcome');\n     (0,_utils_js__WEBPACK_IMPORTED_MODULE_2__.clearChildren)(outcomeElement);\n     outcomeElement.appendChild(makeOutcome(userChoice, computerChoice, outcome));\n }\n\n function makeOutcome(userChoice, computerChoice, outcome) {\n     const userOutcome = makePlayerOutcome('You chose:', userChoice);\n     const computerOutcome = makePlayerOutcome('Computer chose:', computerChoice);\n     const gameOutcome = document.createElement('p');\n     gameOutcome.textContent = outcome;\n     gameOutcome.setAttribute('class', outcome);\n     const outcomeElement = document.createElement('div');\n     outcomeElement.appendChild(gameOutcome);\n     outcomeElement.appendChild(userOutcome);\n     outcomeElement.appendChild(computerOutcome);\n     outcomeElement.setAttribute('class', 'active');\n    return outcomeElement;\n }\n\n function makePlayerOutcome(message, choice) {\n     const outcomeElement = document.createElement('div');\n     const outcomeText = document.createElement('p');\n     outcomeText.textContent = message;\n     outcomeElement.appendChild(outcomeText);\n     const outcomeImage = makeChoiceImage(choice);\n     outcomeImage.setAttribute('class', 'outcomeImg');\n     outcomeElement.appendChild(outcomeImage);\n     outcomeElement.setAttribute('class', 'playerOutcome');\n     return outcomeElement;\n }\n\nprepareGame();\n\n//# sourceURL=webpack://rock-paper-scissors/./code/main.js?");
 
 /***/ }),
 
@@ -167,6 +167,36 @@ eval("module.exports = __webpack_require__.p + \"19a2738eed5f65644ea5.woff\";\n\
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("module.exports = __webpack_require__.p + \"fb1bb49c43d015b78056.woff2\";\n\n//# sourceURL=webpack://rock-paper-scissors/./code/assets/fira_code/FiraCode-Regular.woff2?");
+
+/***/ }),
+
+/***/ "./code/assets/paper.png":
+/*!*******************************!*\
+  !*** ./code/assets/paper.png ***!
+  \*******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"2efd9350e4060406a967.png\";\n\n//# sourceURL=webpack://rock-paper-scissors/./code/assets/paper.png?");
+
+/***/ }),
+
+/***/ "./code/assets/rock.png":
+/*!******************************!*\
+  !*** ./code/assets/rock.png ***!
+  \******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"be0e25c934eaa387e7b5.png\";\n\n//# sourceURL=webpack://rock-paper-scissors/./code/assets/rock.png?");
+
+/***/ }),
+
+/***/ "./code/assets/scissors.png":
+/*!**********************************!*\
+  !*** ./code/assets/scissors.png ***!
+  \**********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"c5a87f35170d0927cad8.png\";\n\n//# sourceURL=webpack://rock-paper-scissors/./code/assets/scissors.png?");
 
 /***/ })
 
